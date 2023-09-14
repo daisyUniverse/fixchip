@@ -16,6 +16,7 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
 echo; echo
 echo " >>> Step 1. Download latest tarball of filesystem changes from github or my site"
+echo; echo
 
 # Fails to get latest version tag for unknown reason.. will fix
 # VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
@@ -25,11 +26,13 @@ wget -O /home/chip/.fixchip/fixchip.tar.gz https://sh.universe.dog/fixchip.tar.g
 
 echo; echo
 echo " >>> Step 2. untar the ball.."
+echo; echo
 
 tar -xzvf /home/chip/.fixchip/fixchip.tar.gz -C /home/chip/.fixchip
 
 echo; echo
 echo " >>> Step 3. Copy in apt configs"
+echo; echo
 
 cp /home/chip/.fixchip/etc/apt/sources.list /etc/apt/sources.list
 cp /home/chip/.fixchip/etc/apt/preferences /etc/apt/preferences
@@ -37,6 +40,7 @@ cp /home/chip/.fixchip/etc/apt/apt.conf /etc/apt/apt.conf
 
 echo; echo
 echo " >>> Step 4. Apt update, apt upgrade, and then install required packages"
+echo; echo
 
 apt-get update && apt-get upgrade -y
 
@@ -46,16 +50,19 @@ apt-get install git vala-terminal xfce4-genmon-plugin xinput-calibrator software
 
 echo; echo
 echo " >>> Step 5. Copy in dotfiles (xmodmap, xinitrc)"
+echo; echo
 
-cp /home/chip/.fixchip/home/chip/.XModmap /home/chip/.XModmap
+cp /home/chip/.fixchip/home/chip/.XModmap /home/chip/.Xmodmap
 cp /home/chip/.fixchip/home/chip/.Xinitrc /home/chip/.Xinitrc
 
 echo; echo
 echo " >>> Step 6. Run xinput-calibrator, and then copy in the new xorg.conf (ask user for ability to long-press)"
+echo; echo
 
 xinput_calibrator
 read -p " ??? Would you like to enable long-press to right click? [Y/N]" -n 1 -r
-echo 
+echo; echo
+
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     cp /home/chip/.fixchip/etc/X11/xorg-long-press.conf /etc/X11/xorg.conf
 else
@@ -64,6 +71,7 @@ fi
 
 echo; echo
 echo " >>> Step 7. Git-Clone chip-battery-status, run it's installer"
+echo; echo
 
 git clone https://github.com/editkid/chip-battery-status
 cd chip-battery-status 
@@ -72,13 +80,15 @@ cd ..
 
 echo; echo
 echo " >>> Step 8. Ask user if they'd like to change the hostname, and if so, do that"
+echo; echo
 
 read -p " ??? Would you like to change the hostname? [Y/N]" -n 1 -r
-echo 
+echo; echo
+
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo; echo
   echo " ??? What would you like your new hostname to be?"
-  echo
+  echo; echo
   read newhostname
   sed -i "s/chip/$newhostname/g" /etc/hostname
   sed -i "s/chip/$newhostname/g" /etc/hosts
