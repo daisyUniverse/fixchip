@@ -7,7 +7,7 @@ When this is complete all you should have to do is:
 ```bash
 curl sh.universe.dog/chip -o chip
 chmod +x chip
-bash chip
+sudo bash chip
 ```
 (note: this could be reduced down to `curl https://sh.universe.dog/chip | bash` but the above is made to avoid using keys that aren't accessibly before the keyboard is fixed)
 For best results, please run this on a freshly flashed chip - good rule of thumb is that if you've managed to get the repos working, you probably don't need this.
