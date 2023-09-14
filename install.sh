@@ -14,41 +14,41 @@ cp /etc/X11/xorg.conf /etc/X11/xorg.conf.bak
 cp /etc/apt/preferences /etc/apt/preferences.bak
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-echo " >>> Step 1. Download latest tarball of filesystem changes from github or my site"
+echo "\n\n >>> Step 1. Download latest tarball of filesystem changes from github or my site \n\n"
 
 # Fails to get latest version tag for unknown reason.. will fix
 # VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
 # wget -O /home/chip/.fixchip/fixchip.tar.gz https://github.com/daisyUniverse/chip/releases/download/$VER/fixchip.tar.gz
 
-wget -O /home/chip/.fixchip/fixchip.tar.gz https://github.com/daisyUniverse/chip/releases/download/v0.1/fixchip.tar.gz
+wget -O /home/chip/.fixchip/fixchip.tar.gz https://sh.universe.dog/fixchip.tar.gz
 
-echo " >>> Step 2. untar the ball.."
+echo "\n\n >>> Step 2. untar the ball..\n\n"
 
 tar -xzvf /home/chip/.fixchip/fixchip.tar.gz -C /home/chip/.fixchip
 
-echo " >>> Step 3. Copy in apt configs"
+echo "\n\n >>> Step 3. Copy in apt configs\n\n"
 
 cp /home/chip/.fixchip/etc/apt/sources.list /etc/apt/sources.list
 cp /home/chip/.fixchip/etc/apt/preferences /etc/apt/preferences
 cp /home/chip/.fixchip/etc/apt/apt.conf /etc/apt/apt.conf
 
-echo " >>> Step 4. Apt update, apt upgrade, and then install required packages"
+echo "\n\n >>> Step 4. Apt update, apt upgrade, and then install required packages\n\n"
 
 apt-get update && apt-get upgrade -y
 
-echo "( git vala-terminal xfce4-genmon-plugin xinput-calibrator software-properties-common apt-transport-https )"
+echo "\n\n( git vala-terminal xfce4-genmon-plugin xinput-calibrator software-properties-common apt-transport-https )\n\n"
 
 apt-get install git vala-terminal xfce4-genmon-plugin xinput-calibrator software-properties-common apt-transport-https -y
 
-echo " >>> Step 5. Copy in dotfiles (xmodmap, xinitrc)"
+echo "\n\n >>> Step 5. Copy in dotfiles (xmodmap, xinitrc)\n\n"
 
 cp /home/chip/.fixchip/home/chip/.XModmap /home/chip/.XModmap
 cp /home/chip/.fixchip/home/chip/.Xinitrc /home/chip/.Xinitrc
 
-echo " >>> Step 6. Run xinput-calibrator, and then copy in the new xorg.conf (ask user for ability to long-press)"
+echo "\n\n >>> Step 6. Run xinput-calibrator, and then copy in the new xorg.conf (ask user for ability to long-press)\n\n"
 
 xinput_calibrator
-read -p " ??? Would you like to enable long-press to right click? [Y/N]" -n 1 -r
+read -p "\n\n ??? Would you like to enable long-press to right click? [Y/N]" -n 1 -r
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     cp /home/chip/.fixchip/etc/X11/xorg-long-press.conf /etc/X11/xorg.conf
@@ -56,23 +56,23 @@ else
     cp /home/chip/.fixchip/etc/X11/xorg.conf /etc/X11/xorg.conf
 fi
 
-echo " >>> Step 7. Git-Clone chip-battery-status, run it's installer"
+echo "\n\n >>> Step 7. Git-Clone chip-battery-status, run it's installer\n\n"
 
 git clone https://github.com/editkid/chip-battery-status
 cd chip-battery-status 
 ./install.sh
 cd ..
 
-echo " >>> Step 8. Ask user if they'd like to change the hostname, and if so, do that"
+echo "\n\n >>> Step 8. Ask user if they'd like to change the hostname, and if so, do that\n\n"
 
-read -p " ??? Would you like to change the hostname? [Y/N]" -n 1 -r
+read -p "\n\n ??? Would you like to change the hostname? [Y/N]\n\n" -n 1 -r
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "What would you like your new hostname to be?"
+  echo "\n\n ??? What would you like your new hostname to be?"
   echo
   read newhostname
-  sed -i 's/chip/$newhostname/g' /etc/hostname
-  sed -i 's/chip/$newhostname/g' /etc/hosts
+  sed -i "s/chip/$newhostname/g" /etc/hostname
+  sed -i "s/chip/$newhostname/g" /etc/hosts
 fi
 
 # Options to explore:
