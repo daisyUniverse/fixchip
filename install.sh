@@ -17,11 +17,11 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 echo " >>> Step 1. Download latest tarball of filesystem changes from github or my site"
 
 VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
-wget https://github.com/daisyUniverse/chip/releases/download/$VER/fixchip.tar.gz
+wget -O /home/chip/.fixchip/fixchip.tar.gz https://github.com/daisyUniverse/chip/releases/download/$VER/fixchip.tar.gz
 
 echo " >>> Step 2. untar the ball.."
 
-tar -xzvf fixchip.tar.gz 
+tar -xzvf /home/chip/.fixchip/fixchip.tar.gz -C /home/chip/.fixchip
 
 echo " >>> Step 3. Copy in apt configs"
 
@@ -48,9 +48,9 @@ xinput_calibrator
 read -p " ??? Would you like to enable long-press to right click? [Y/N]" -n 1 -r
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    cp ~/.fixchip/etc/X11/xorg-long-press.conf /etc/X11/xorg.conf
+    cp /home/chip/.fixchip/etc/X11/xorg-long-press.conf /etc/X11/xorg.conf
 else
-    cp ~/.fixchip/etc/X11/xorg.conf /etc/X11/xorg.conf
+    cp /home/chip/.fixchip/etc/X11/xorg.conf /etc/X11/xorg.conf
 fi
 
 echo " >>> Step 7. Git-Clone chip-battery-status, run it's installer"
