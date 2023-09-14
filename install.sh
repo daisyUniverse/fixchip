@@ -16,7 +16,8 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
 echo " >>> Step 1. Download latest tarball of filesystem changes from github or my site"
 
-curl https://github.com/daisyUniverse/chip/releases/download/latest/fixchip.tar.gz -o fixchip.tar.gz
+VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
+wget https://github.com/bakito/adguardhome-sync/releases/download/$VER/fixchip.tar.gz
 
 echo " >>> Step 2. untar the ball.."
 
