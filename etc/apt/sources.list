@@ -1,0 +1,13 @@
+deb http://archive.debian.org/debian/ jessie main contrib non-free
+deb-src http://archive.debian.org/debian/ jessie main contrib non-free
+
+deb http://archive.debian.org/debian-security jessie/updates main contrib non-free
+deb-src http://archive.debian.org/debian-security jessie/updates main contrib non-free
+
+deb http://archive.debian.org/debian jessie-backports main contrib non-free
+deb-src http://archive.debian.org/debian jessie-backports main contrib non-free
+
+deb http://chip.jfpossibilities.com/chip/debian/repo jessie main
+deb http://chip.jfpossibilities.com/chip/debian/pocketchip jessie main
+
+deb http://archive.raspbian.org/raspbian jessie main contrib non-free
