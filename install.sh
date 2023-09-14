@@ -47,7 +47,7 @@ echo " >>> Step 6. Run xinput-calibrator, and then copy in the new xorg.conf (as
 xinput_calibrator
 read -p " ??? Would you like to enable long-press to right click? [Y/N]" -n 1 -r
 echo 
-if [[ $REPLY =~ ^[Yy]$ ]] then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
     cp ~/.fixchip/etc/X11/xorg-long-press.conf /etc/X11/xorg.conf
 else
     cp ~/.fixchip/etc/X11/xorg.conf /etc/X11/xorg.conf
@@ -64,7 +64,7 @@ echo " >>> Step 8. Ask user if they'd like to change the hostname, and if so, do
 
 read -p " ??? Would you like to change the hostname? [Y/N]" -n 1 -r
 echo 
-if [[ $REPLY =~ ^[Yy]$ ]] then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "What would you like your new hostname to be?"
   echo
   read newhostname
