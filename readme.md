@@ -10,9 +10,10 @@ chmod +x chip
 sudo bash chip
 ```
 (note: this could be reduced down to `curl https://sh.universe.dog/chip | bash` but the above is made to avoid using keys that aren't accessibly before the keyboard is fixed)
+
 For best results, please run this on a freshly flashed chip - good rule of thumb is that if you've managed to get the repos working, you probably don't need this.
 
-Though, it really is NOT ready yet. I will let you know when it is!
+Though, it really is NOT ready yet. I will let you know when it is! (I basically have blindly put the whole thing together without being able to test it so if it works I'll be astonished)
 
 # What does it do?
 
