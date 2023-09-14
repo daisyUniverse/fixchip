@@ -16,8 +16,11 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
 echo " >>> Step 1. Download latest tarball of filesystem changes from github or my site"
 
-VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
-wget -O /home/chip/.fixchip/fixchip.tar.gz https://github.com/daisyUniverse/chip/releases/download/$VER/fixchip.tar.gz
+# Fails to get latest version tag for unknown reason.. will fix
+# VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
+# wget -O /home/chip/.fixchip/fixchip.tar.gz https://github.com/daisyUniverse/chip/releases/download/$VER/fixchip.tar.gz
+
+wget -O /home/chip/.fixchip/fixchip.tar.gz https://github.com/daisyUniverse/chip/releases/download/v0.1/fixchip.tar.gz
 
 echo " >>> Step 2. untar the ball.."
 
