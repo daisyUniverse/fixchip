@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-mkdir ~/.fixchip && cd ~/.fixchip
+mkdir /home/chip/.fixchip && cd /home/chip/.fixchip
 cp /etc/X11/xorg.conf /etc/X11/xorg.conf.bak
 cp /etc/apt/preferences /etc/apt/preferences.bak
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
@@ -17,7 +17,7 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 echo " >>> Step 1. Download latest tarball of filesystem changes from github or my site"
 
 VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
-wget https://github.com/bakito/adguardhome-sync/releases/download/$VER/fixchip.tar.gz
+wget https://github.com/daisyUniverse/chip/releases/download/$VER/fixchip.tar.gz
 
 echo " >>> Step 2. untar the ball.."
 
@@ -25,9 +25,9 @@ tar -xzvf fixchip.tar.gz
 
 echo " >>> Step 3. Copy in apt configs"
 
-cp ~/.fixchip/etc/apt/sources.list /etc/apt/sources.list
-cp ~/.fixchip/etc/apt/preferences /etc/apt/preferences
-cp ~/.fixchip/etc/apt/apt.conf /etc/apt/apt.conf
+cp /home/chip/.fixchip/etc/apt/sources.list /etc/apt/sources.list
+cp /home/chip/.fixchip/etc/apt/preferences /etc/apt/preferences
+cp /home/chip/.fixchip/etc/apt/apt.conf /etc/apt/apt.conf
 
 echo " >>> Step 4. Apt update, apt upgrade, and then install required packages"
 
@@ -39,8 +39,8 @@ apt-get install git vala-terminal xfce4-genmon-plugin xinput-calibrator software
 
 echo " >>> Step 5. Copy in dotfiles (xmodmap, xinitrc)"
 
-cp ~/.fixchip/home/chip/.XModmap /home/chip/.XModmap
-cp ~/.fixchip/home/chip/.Xinitrc /home/chip/.Xinitrc
+cp /home/chip/.fixchip/home/chip/.XModmap /home/chip/.XModmap
+cp /home/chip/.fixchip/home/chip/.Xinitrc /home/chip/.Xinitrc
 
 echo " >>> Step 6. Run xinput-calibrator, and then copy in the new xorg.conf (ask user for ability to long-press)"
 
