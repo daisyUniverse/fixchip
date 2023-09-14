@@ -14,13 +14,13 @@ cp /etc/X11/xorg.conf /etc/X11/xorg.conf.bak
 cp /etc/apt/preferences /etc/apt/preferences.bak
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-echo "\n\n >>> Step 1. Download latest tarball of filesystem changes from github or my site \n\n"
+echo "\n\n >>> Step 1. Download latest tarball of filesystem changes from github or my site"
 
 # Fails to get latest version tag for unknown reason.. will fix
 # VER=$(curl --silent -qI https://github.com/daisyUniverse/chip/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); \
 # wget -O /home/chip/.fixchip/fixchip.tar.gz https://github.com/daisyUniverse/chip/releases/download/$VER/fixchip.tar.gz
 
-wget -O /home/chip/.fixchip/fixchip.tar.gz https://sh.universe.dog/fixchip.tar.gz
+wget -O /home/chip/.fixchip/fixchip.tar.gz https://sh.universe.dog/fixchip.tar.gz -q --show-progress
 
 echo "\n\n >>> Step 2. untar the ball..\n\n"
 
