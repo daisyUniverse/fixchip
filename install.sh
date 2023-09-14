@@ -38,8 +38,8 @@ apt-get install git vala-terminal xfce4-genmon-plugin xinput-calibrator software
 
 # Step 5. Copy in dotfiles (xmodmap, xinitrc)
 
-cp ~/.fixchip/home/chip/.XModmap ~/.XModmap
-cp ~/.fixchip/home/chip/.Xinitrc ~/.Xinitrc
+cp ~/.fixchip/home/chip/.XModmap /home/chip/.XModmap
+cp ~/.fixchip/home/chip/.Xinitrc /home/chip/.Xinitrc
 
 # Step 6. Run xinput-calibrator, and then copy in the new xorg.conf (ask user for ability to long-press)
 
