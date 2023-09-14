@@ -5,7 +5,6 @@
 echo "Step 0. Backup all system files that will be affected"
 
 if [ "$EUID" -ne 0 ]
-  echo; echo
   then echo "Please run as root. HINT: The default password is 'chip' on a fresh image."
   exit
 fi
