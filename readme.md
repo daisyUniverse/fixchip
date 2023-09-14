@@ -5,7 +5,7 @@ Very little of this is my original work, and this is mostly a compilation of fix
 
 When this is complete all you should have to do is:
 ```bash
-curl https://sh.universe.dog/chip | bash
+curl sh.universe.dog/chip | bash
 ```
 
 For best results, please run this on a freshly flashed chip - good rule of thumb is that if you've managed to get the repos working, you probably don't need this.
