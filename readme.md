@@ -5,12 +5,24 @@ Very little of this is my original work, and this is mostly a compilation of fix
 
 When this is complete all you should have to do is:
 ```bash
-curl sh.universe.dog/chip | bash
+curl sh.universe.dog/chip
+chmod +x chip
+bash chip
 ```
-
+(note: this could be reduced down to `curl https://sh.universe.dog/chip | bash` but the above is made to avoid using keys that aren't accessibly before the keyboard is fixed)
 For best results, please run this on a freshly flashed chip - good rule of thumb is that if you've managed to get the repos working, you probably don't need this.
 
 Though, it really is NOT ready yet. I will let you know when it is!
+
+# What does it do?
+
+1. Backups system files that will be changed
+2. Fixes the broken repos ( please note package security will have to be disabled but this is the world we live in with this stuff )
+3. Fixes the Keyboard
+4. Updates, Upgrades packages, and downloads a few required packages
+5. Fixes the touchscreen
+6. Optionally changes the hostname
+7. Whatever else I can think of by the time I finish this project
 
 # CREDITS
 This is a compilation of work presented I found around the web:
