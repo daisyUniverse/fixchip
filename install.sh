@@ -39,14 +39,7 @@ cp /home/chip/.fixchip/home/chip/.Xinitrc /home/chip/.Xinitrc
 
 echo -e "\n\n >>> Run xinput-calibrator, and then copy in the new xorg.conf\n\n"
 xinput_calibrator
-
-read -p " ??? Would you like to enable long-press to right click? [Y/N]" -n 1 -r
-echo; echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    cp /home/chip/.fixchip/etc/X11/xorg-long-press.conf /etc/X11/xorg.conf
-else
-    cp /home/chip/.fixchip/etc/X11/xorg.conf /etc/X11/xorg.conf
-fi
+cp /home/chip/.fixchip/etc/X11/xorg.conf /etc/X11/xorg.conf
 
 read -p " ??? Would you like to enable SSH? [Y/N]" -n 1 -r
 echo; echo
