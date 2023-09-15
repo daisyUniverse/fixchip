@@ -22,8 +22,11 @@ Though, it really is NOT ready yet. I will let you know when it is! (I basically
 3. Fixes the Keyboard
 4. Updates, Upgrades packages, and downloads a few required packages
 5. Fixes the touchscreen
-6. Optionally changes the hostname
-7. Whatever else I can think of by the time I finish this project
+6. Updates PICO-8
+7. Installs a fixed copy of PocketDesk that doesn't rely on NTC Servers
+8. Optionally installs and enables SSH
+9. Optionally changes the hostname
+10. Whatever else I can think of by the time I finish this project
 
 # CREDITS
 This is a compilation of work presented I found around the web:
